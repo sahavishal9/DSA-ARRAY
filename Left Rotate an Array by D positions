@@ -1,0 +1,16 @@
+def reverse(arr,low,high):
+    while(low<high):
+        arr[low],arr[high]=arr[high],arr[low]
+        low+=1 
+        high-=1 
+    return arr
+
+def leftRotate(arr,D):
+    arr=reverse(arr,0,D-1)
+    arr=reverse(arr,D,len(arr)-1)
+    arr=reverse(arr,0,len(arr)-1)
+    return arr
+    
+arr=[1,2,3,4,5,6]
+D=3
+print(leftRotate(arr,D))
