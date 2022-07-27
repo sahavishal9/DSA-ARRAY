@@ -1,0 +1,26 @@
+def freqSorted(arr):
+    n=len(arr)
+    freq=1
+    for i in range(n-1):
+        if arr[i]==arr[i+1]:
+            freq+=1
+        else:
+            print(arr[i],freq)
+            freq=1
+    print(arr[n-1],freq)
+    
+arr=[10,10,10,20,30,30]
+freqSorted(arr)
+print()
+
+arr=[10,10,10]
+freqSorted(arr)
+print()
+
+arr=[10,10,10,20]
+freqSorted(arr)
+print()
+
+arr=[10]
+freqSorted(arr)
+print()
