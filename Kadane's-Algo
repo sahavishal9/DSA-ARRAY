@@ -1,54 +1,30 @@
-#User function Template for python3
 
-class Solution:
-    
-    def maxSubArraySum(self,arr,N):
+## SOLUTION-1
+def maxSubArraySum(arr,n):
         ##Your code here
-        i=0
-        cur_sum=0
-        maxm=float('-inf')
-        flag=1
-        while i<N:
-            if arr[i]>0:
-                cur_sum+=arr[i]
-                flag=0
-                
-            elif arr[i]<0:
-                if cur_sum+arr[i]>0:
-                    cur_sum+=arr[i]
-                else:
-                    cur_sum=0 
-            if cur_sum>maxm:
-                maxm=cur_sum
-            i+=1
-        if flag:
+        ans=0
+        cur=0
+        flag=0
+        for i in range(n):
+            if arr[i]>=0:
+                cur+=arr[i]
+                flag=1
+            else:
+                ans=max(ans,cur) 
+                cur=max(0,cur+arr[i])
+        if flag==0:
             return max(arr)
-        return maxm
-                
-            
-
-#{ 
-#  Driver Code Starts
-#Initial Template for Python 3
-
-import math
-
- 
-def main():
-        T=int(input())
-        while(T>0):
-            
-            n=int(input())
-            
-            arr=[int(x) for x in input().strip().split()]
-            
-            ob=Solution()
-            
-            print(ob.maxSubArraySum(arr,n))
-            
-            T-=1
-
-
-if __name__ == "__main__":
-    main()
-# } Driver Code Ends
+        ans=max(ans,cur)
+        
+        return ans
+      
+      
+## SOLUTION-2
+def maxSubArraySum(arr,n):
+        ans=arr[0]
+        cur=arr[0]
+        for i in range(1,n):
+            cur=max(cur+arr[i],arr[i])
+            ans=max(ans,cur)
+        
+        return ans
