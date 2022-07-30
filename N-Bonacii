@@ -1,0 +1,11 @@
+def N_bonacii(N,M):
+    A=[0]*(N-1)
+    A.append(1) 
+    cur_sum=1
+    for i in range(N,M):
+        A.append(cur_sum)
+        cur_sum+=A[i]-A[i-N]
+    print(*A)
+
+N_bonacii(3,8)
+N_bonacii(2,8)
