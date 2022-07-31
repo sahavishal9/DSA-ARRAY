@@ -1,0 +1,23 @@
+def isEquilibiumPoint(arr):
+    sm=0 
+    for i in range(len(arr)):
+        sm+=arr[i]
+    left_sum=0 
+    for i in range(len(arr)):
+        if left_sum==sm-arr[i]:
+            return 1 
+        left_sum+=arr[i]
+        sm-=arr[i] 
+    return -1
+
+arr=[3,4,8,-9,20,6]
+print(isEquilibiumPoint(arr))
+
+arr=[2,3,10,5]
+print(isEquilibiumPoint(arr))
+
+arr=[1,2,3,4,5]
+print(isEquilibiumPoint(arr))
+
+arr=[1,2,3,0,6]
+print(isEquilibiumPoint(arr))
