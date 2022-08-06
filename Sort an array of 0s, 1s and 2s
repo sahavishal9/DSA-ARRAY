@@ -1,0 +1,15 @@
+def sort012(arr,n):
+        cnt_0=0
+        cnt_1=0
+        cnt_2=0
+        for i in range(n):
+            if arr[i]==0:
+                cnt_0+=1
+            elif arr[i]==1:
+                cnt_1+=1
+            else:
+                cnt_2+=1
+        arr[:cnt_0]=[0]*cnt_0
+        arr[cnt_0:cnt_0+cnt_1]=[1]*cnt_1
+        arr[cnt_0+cnt_1:]=[2]*cnt_2
+        return arr
